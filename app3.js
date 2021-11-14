@@ -5,22 +5,19 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 
-const CANVAS_SIZE = 600;
-const INITIAL_COLOR = "#2c2c2c";
-
-canvas.width = CANVAS_SIZE;
-canvas.height = CANVAS_SIZE;
+canvas.width = 600;
+canvas.height = 600;
 
 ctx.fillStyle = "white";
-ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-ctx.strokeStyle = INITIAL_COLOR;
-ctx.fillStyle = INITIAL_COLOR;
+ctx.fillRect(0, 0, 600, 600);
+ctx.strokeStyle = "#2c2c2c";
+ctx.fillStyle = "#2c2c2c";
 ctx.lineWidth = 2.5;
 
 let painting = false;
 let filling = false;
 
-function onMousemove(event) {
+function onMouseMove(event) {
     const x = event.offsetX;
     const y = event.offsetY;
     if(!painting) {
@@ -47,11 +44,11 @@ function handleColorClick(event) {
 }
 
 function handleRangeChange(event) {
-    const size = event.target.value;
-    ctx.lineWidth = size;
+    const value = event.target.value;
+    ctx.lineWidth = value;
 }
 
-function handleModeCilck() {
+function handleModeClick() {
     if(filling) {
         filling = false;
         mode.innerText = "Fill";
@@ -63,7 +60,7 @@ function handleModeCilck() {
 
 function handleCanvasClick() {
     if(filling) {
-        ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+        ctx.fillRect(0, 0, 600, 600);
     }
 }
 
@@ -75,12 +72,12 @@ function handleSaveCilck() {
     const image = canvas.toDataURL();
     const link = document.createElement("a");
     link.href = image;
-    link.download = "finish";
+    link.download = "나는야짱"
     link.click();
 }
 
 if(canvas) {
-    canvas.addEventListener("mousemove", onMousemove);
+    canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
@@ -93,7 +90,7 @@ if(range) {
 }
 
 if(mode) {
-    mode.addEventListener("click", handleModeCilck);
+    mode.addEventListener("click", handleModeClick);
 }
 
 if(saveBtn) {
