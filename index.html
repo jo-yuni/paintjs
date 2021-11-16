@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,20 @@
     <link rel="stylesheet" href="./styles.css">
     <title>PaintJS</title>
 </head>
+
 <body>
     <canvas id="jsCanvas" class="canvas"></canvas>
     <div class="controls">
-        <div class="controls__range">
-            <input type="range" id="jsRange" min="0.1" max="5" value="2.5" step="0.1">
+        <div class="controls__paint__range">
+            <input type="range" id="jsPaintRange" min="0.1" max="5" value="2.5" step="0.1">
+        </div>
+        <div class="controls__erase__range">
+            <input type="range" id="jsEraseRange" min="0.1" max="10" value="3" step="0.5">
         </div>
         <div class="controls__btns">
             <button id="jsMode">Fill</button>
+            <button id="jsErase">Erase</button>
+            <button id="jsReset">Reset</button>
             <button id="jsSave">Save</button>
         </div>
         <div class="controls__colors" id="jsColors">
@@ -32,4 +39,5 @@
 
     <script src="./app4.js"></script>
 </body>
+
 </html>
